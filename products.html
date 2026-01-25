@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahsulotlar - Tech House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">Bepul yetkazib berish 500,000 so'mdan yuqori buyurtmalarga!</div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" class="fas fa-cube">Tech House</a>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="index.html">Bosh sahifa</a>
+                <a href="products.html" class="active">Mahsulotlar</a>
+                <a href="contact.html">Bog'lanish</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="cart-icon" onclick="goToCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="cart-icon">
+                    <a href="login.html"><i class="far fa-user"></i></a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 40px 0;">
+        <div class="container">
+            <h1 style="font-size: 2rem;">Mahsulotlar Katalogi</h1>
+            <p>Eng yaxshi maishiy texnikalar bir joyda</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="shop-container">
+            
+            <aside class="sidebar">
+                <div class="filter-group">
+                    <div class="filter-title">Kategoriyalar</div>
+                    <ul class="category-list">
+                        <li class="active" onclick="filterCategory('all', this)">
+                            Barchasi <span class="count">12</span>
+                        </li>
+                        <li onclick="filterCategory('oshxona', this)">
+                            Oshxona <span class="count">4</span>
+                        </li>
+                        <li onclick="filterCategory('tozalash', this)">
+                            Tozalash <span class="count">3</span>
+                        </li>
+                        <li onclick="filterCategory('isitish', this)">
+                            Isitish <span class="count">3</span>
+                        </li>
+                        <li onclick="filterCategory('aqlli', this)">
+                            Aqlli Uy <span class="count">2</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-title">Holati</div>
+                    <label class="checkbox-item">
+                        <input type="checkbox" onchange="toggleSale(this)"> Chegirmalar
+                    </label>
+                </div>
+            </aside>
+
+            <main>
+                <div style="margin-bottom: 20px;">
+                    <div class="search-box" style="margin-bottom: 20px;">
+                        <input type="text" id="searchInput" placeholder="Mahsulotlarni qidirish...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                        <h2 id="currentCategoryTitle">Barcha mahsulotlar</h2>
+                        <select id="sortSelect" style="padding:8px; border-radius:4px; border:1px solid var(--border);">
+                            <option value="popular">Ommabop</option>
+                            <option value="price-low">Arzondan qimmatga</option>
+                            <option value="price-high">Qimmatdan arzonga</option>
+                            <option value="name">Nom bo'yicha</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="productGrid"></div>
+            </main>
+        </div>
+    </section>
+
+    <button class="checkout-btn" id="checkoutBtn" onclick="goToCart()">
+        <i class="fas fa-shopping-cart"></i> Savatga o'tish
+    </button>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tech House. Barcha huquqlar himoyalangan.</p>
+            <p style="margin-top:10px; font-size:0.9rem;">
+                Manzil: Toshkent sh., Amir Temur ko'chasi 108 | Tel: +998 71 200 00 00
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            
+            if (category) {
+                filterCategory(category);
+                const items = document.querySelectorAll('.category-list li');
+                items.forEach(item => item.classList.remove('active'));
+            } else {
+                renderProducts();
+            }
+            
+            const sortSelect = document.getElementById('sortSelect');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', (e) => {
+                    sortProducts(e.target.value);
+                });
+            }
+        });
+        
+        function sortProducts(sortType) {
+            let sorted = [...products];
+            
+            switch(sortType) {
+                case 'price-low':
+                    sorted.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    sorted.sort((a, b) => a.title.localeCompare(b.title));
+                    break;
+                default:
+                    break;
+            }
+            
+            renderProducts(sorted);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish - Tech House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .login-header p {
+            color: var(--text-light);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .membership-info {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+        }
+        
+        .membership-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .membership-tiers {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tier-badge {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+        }
+        
+        .tier-bronze {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .tier-silver {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        
+        .tier-gold {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .forgot-password {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .forgot-password a {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        .social-login {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .social-login p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .social-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .social-btn {
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: white;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .social-btn:hover {
+            background: var(--bg-light);
+        }
+        
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 30px 20px;
+            }
+            
+            .membership-tiers {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">Bepul yetkazib berish 500,000 so'mdan yuqori buyurtmalarga!</div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+               <a href="index.html" class="fas fa-cube">Tech House</a>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="index.html">Bosh sahifa</a>
+                <a href="products.html">Mahsulotlar</a>
+                <a href="contact.html">Bog'lanish</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="cart-icon" onclick="goToCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="cart-icon">
+                    <a href="login.html"><i class="far fa-user"></i></a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Xush kelibsiz!</h1>
+                <p>Akkauntingizga kiring yoki ro'yxatdan o'ting</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('login')">Kirish</div>
+                <div class="tab" onclick="switchTab('register')">Ro'yxatdan o'tish</div>
+            </div>
+            
+            <div id="loginTab" class="tab-content active">
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Telefon raqam yoki Email</label>
+                        <input type="text" required placeholder="+998 90 123 45 67">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Parol</label>
+                        <input type="password" required placeholder="Parolingizni kiriting">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> Kirish
+                    </button>
+                    
+                    <div class="forgot-password">
+                        <a href="#">Parolni unutdingizmi?</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="registerTab" class="tab-content">
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label>Ism</label>
+                        <input type="text" required placeholder="Ismingiz">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Telefon raqam</label>
+                        <input type="tel" required placeholder="+998 90 123 45 67">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required placeholder="email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Parol</label>
+                        <input type="password" required placeholder="Parol yarating">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-user-plus"></i> Ro'yxatdan o'tish
+                    </button>
+                </form>
+            </div>
+            
+            <div class="social-login">
+                <p>Yoki ijtimoiy tarmoqlar orqali</p>
+                <div class="social-buttons">
+                    <button class="social-btn">
+                        <i class="fab fa-google" style="color: #DB4437;"></i>
+                        Google
+                    </button>
+                    <button class="social-btn">
+                        <i class="fab fa-telegram" style="color: #0088cc;"></i>
+                        Telegram
+                    </button>
+                </div>
+            </div>
+            
+            <div class="membership-info">
+                <h3><i class="fas fa-crown" style="color: #f59e0b;"></i> Sodiqlik dasturi</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">
+                    Ro'yxatdan o'ting va maxsus chegirmalar hamda ballar to'plang!
+                </p>
+                <div class="membership-tiers">
+                    <div class="tier-badge tier-bronze">
+                        <i class="fas fa-medal"></i> Bronza
+                    </div>
+                    <div class="tier-badge tier-silver">
+                        <i class="fas fa-medal"></i> Kumush
+                    </div>
+                    <div class="tier-badge tier-gold">
+                        <i class="fas fa-crown"></i> Oltin
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tech House. Barcha huquqlar himoyalangan.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Manzil: Toshkent sh., Amir Temur ko'chasi 108 | Tel: +998 71 200 00 00</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            if (tabName === 'login') {
+                document.querySelector('.tab:first-child').classList.add('active');
+                document.getElementById('loginTab').classList.add('active');
+            } else {
+                document.querySelector('.tab:last-child').classList.add('active');
+                document.getElementById('registerTab').classList.add('active');
+            }
+        }
+        
+        function handleLogin(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        }
+        
+        function handleRegister(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
