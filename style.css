@@ -66,13 +66,6 @@ header {
     z-index: 1000;
 }
 
-.top-bar {
-    background: var(--primary);
-    color: var(--white);
-    font-size: 0.85rem;
-    padding: 8px 0;
-    text-align: center;
-}
 
 .nav-container {
     display: flex;
@@ -555,6 +548,95 @@ header {
     grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
     gap: 40px;
     margin-bottom: 50px;
+}
+
+.footer-col h3 {
+    color: var(--footer-heading);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: var(--footer-text);
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--footer-heading);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-desc {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info i {
+    color: var(--accent);
+    width: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+}
+
+.payment-methods {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.payment-methods i {
+    font-size: 2rem;
+    color: var(--footer-text);
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
 }
 
 footer {
