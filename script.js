@@ -5,7 +5,7 @@ const products = [
         title: "Smart Pro Blender", 
         category: "oshxona", 
         price: 1200000, 
-        image: "/img/kitchen-blender-with-glass-container-food-processor-electronic-kitchen-appliance-concept-health-food-drink-vector-illustration-isolated-background_545793-946.avif", 
+        image: "img/kitchen-blender-with-glass-container-food-processor-electronic-kitchen-appliance-concept-health-food-drink-vector-illustration-isolated-background_545793-946.avif", 
         sale: false,
         description: "Yuqori quvvatli blender, 10 tezlik rejimi bilan. Muzlatilgan mevalar va muzni maydalash uchun ideal.",
         features: ["1200W quvvat", "10 tezlik rejimi", "2L hajmi", "Zanglamaydigan po'lat pichoqlar"]
@@ -15,7 +15,7 @@ const products = [
         title: "Digital Mikropech", 
         category: "oshxona", 
         price: 2500000, 
-        image: "/img/modern-black-microwave-oven-isolated-260nw-2277285935.webp", 
+        image: "img/modern-black-microwave-oven-isolated-260nw-2277285935.webp", 
         sale: false,
         description: "Zamonaviy raqamli mikroto'lqinli pech. Tez isitish va pishirish funksiyalari.",
         features: ["800W quvvat", "20L hajmi", "Digital displey", "8 ta avtomatik darsur"]
@@ -25,7 +25,7 @@ const products = [
         title: "Robot Changyutgich", 
         category: "tozalash", 
         price: 3500000, 
-        image: "/img/белый-робот-пылесос-заряжается-на-своей-базе-вид-сверху-247265893.webp", 
+        image: "img/белый-робот-пылесос-заряжается-на-своей-базе-вид-сверху-247265893.webp", 
         sale: true,
         description: "Aqlli robot changyutgich. Avtomatik tozalash va zaryadlash funksiyasi.",
         features: ["Wi-Fi boshqaruvi", "4000mAh batareya", "HEPA filtr", "Avtomatik zaryadlash"]
@@ -35,7 +35,7 @@ const products = [
         title: "Infrared Isitgich", 
         category: "isitish", 
         price: 850000, 
-        image: "/img/i.webp", 
+        image: "img/i.webp", 
         sale: false,
         description: "Infraqizil isitgich, tez va samarali isitish.",
         features: ["2000W quvvat", "3 temperatura rejimi", "Xavfsizlik datchigi", "Masofadan boshqarish"]
@@ -45,7 +45,7 @@ const products = [
         title: "Smart Home Hub", 
         category: "aqlli", 
         price: 1500000, 
-        image: "/img/7.webp", 
+        image: "img/7.webp", 
         sale: false,
         description: "Aqlli uy markaziy boshqaruv tizimi. Barcha qurilmalarni bir joydan boshqaring.",
         features: ["Wi-Fi va Bluetooth", "Ovozli boshqaruv", "100+ qurilma bilan mos", "Mobil ilova"]
@@ -55,7 +55,7 @@ const products = [
         title: "Bug'li Tozalagich", 
         category: "tozalash", 
         price: 1800000, 
-        image: "/img/235663.750x0.jpg", 
+        image: "img/235663.750x0.jpg", 
         sale: false,
         description: "Professional bug'li tozalash mashinasi. Kimyoviy moddalar ishlatmasdan tozalaydi.",
         features: ["1500W quvvat", "40 soniya isish vaqti", "10 ta qo'shimcha", "3.5 bar bosim"]
@@ -65,7 +65,7 @@ const products = [
         title: "Kofemashina Deluxe", 
         category: "oshxona", 
         price: 3200000, 
-        image: "/img/espresso-coffee-machine-white-background-copy-space-espresso-coffee-machine-steam-jet-white-background-166646172.webp", 
+        image: "img/espresso-coffee-machine-white-background-copy-space-espresso-coffee-machine-steam-jet-white-background-166646172.webp", 
         sale: false,
         description: "Professional kofe mashinasi. Espresso, kapuchino va boshqa ichimliklar tayyorlash.",
         features: ["15 bar bosim", "Sut ko'pirtirish", "LCD displey", "Ikki chashka rejimi"]
@@ -75,7 +75,7 @@ const products = [
         title: "Havo Tozalagich", 
         category: "tozalash", 
         price: 2100000, 
-        image: "/img/cde4c50a1a6f88bbba86f2e94b19f63f.jpg", 
+        image: "img/cde4c50a1a6f88bbba86f2e94b19f63f.jpg", 
         sale: true,
         description: "HEPA filtrli havo tozalagich. Allergenlar va bakteriyalarni yo'q qiladi.",
         features: ["HEPA H13 filtr", "50m² uchun", "UV-C lampa", "Tungi rejim"]
@@ -85,7 +85,7 @@ const products = [
         title: "Smart Konditsioner", 
         category: "isitish", 
         price: 4500000, 
-        image: "/img/floor-standing.jpg", 
+        image: "img/floor-standing.jpg", 
         sale: false,
         description: "Wi-Fi bilan boshqariladigan konditsioner. Aqlli temperatura nazorati.",
         features: ["12000 BTU", "Inverter texnologiya", "Wi-Fi boshqaruv", "A++ energiya samaradorligi"]
@@ -95,7 +95,7 @@ const products = [
         title: "Elektr Grili", 
         category: "oshxona", 
         price: 980000, 
-        image: "/img/Electric-Panini-Grill-Commercial-Panini-Sandwich-Press-Stainless-Steel-Single-Contact-Grill.avif", 
+        image: "img/Electric-Panini-Grill-Commercial-Panini-Sandwich-Press-Stainless-Steel-Single-Contact-Grill.avif", 
         sale: false,
         description: "Elektr gril, ichki va tashqi foydalanish uchun.",
         features: ["2000W quvvat", "Yopishmaydigan sirt", "Harorat nazorati", "Oson tozalash"]
@@ -105,7 +105,7 @@ const products = [
         title: "Smart Kamera", 
         category: "aqlli", 
         price: 1350000, 
-        image: "/img/orig.webp", 
+        image: "img/orig.webp", 
         sale: false,
         description: "Aqlli xavfsizlik kamerasi. Tungi ko'rish va harakatni aniqlash.",
         features: ["1080p Full HD", "Tungi ko'rish", "Ikki tomonlama audio", "Bulut xotira"]
@@ -115,7 +115,7 @@ const products = [
         title: "Elektr Radiator", 
         category: "isitish", 
         price: 1100000, 
-        image: "/img/3d-rendering-realistic-electric-oil-heater-isolated-white-background_187882-3040.avif", 
+        image: "img/3d-rendering-realistic-electric-oil-heater-isolated-white-background_187882-3040.avif", 
         sale: false,
         description: "Elektr moylli radiator. Xavfsiz va samarali isitish.",
         features: ["2000W quvvat", "7 sektsiya", "Termostat", "G'ildirak bilan"]
@@ -345,3 +345,4 @@ function getCart() {
 function calculateTotal() {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 }
+
